@@ -1,0 +1,15 @@
+server:
+  port: 8006
+
+spring:
+  application:
+    name: cloud-payment-service
+  cloud:
+    consul:
+      host: localhost
+      port: 8500
+#      discovery:
+#        service-name: testkevin
+#        service-name: ${spring.application.name}
+#        修改这个配置确认服务名spring.application.name还是service-name确定的,
+#        测试结果显示有这个参数，则使用这个为最终服务名，如果没有就使用spring.application.name为最终服务名

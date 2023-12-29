@@ -1,0 +1,19 @@
+server:
+  port: 7001
+
+eureka:
+  instance:
+    hostname: eureka7001.com
+  client:
+    register-with-eureka: false
+    fetch-registry: false
+    service-url:
+#      defaultZone: http://eureka7002.com:7002
+#      defaultZone: http://eureka7002.com:7002/eureka/ //集群的时候不用标识本服务器地址，只需要标记其他集群地址
+      # 如果在单机版里不设置defaultZone也是可以的，不过在网页上的DS Replicas会有localhost这一个，
+      # 同时指向的网址是默认的http://localhost:8761/eureka/,DS Replicas里显示的是defaultZone所有网址里的所有hostname
+#      defaultZone: http://test:7002/eureka/
+      defaultZone: http://eureka7001.com:7001/eureka/
+  server:
+#    enable-self-preservation: false
+#    eviction-interval-timer-in-ms: 2000

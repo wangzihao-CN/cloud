@@ -1,0 +1,19 @@
+server:
+  port: 80
+spring:
+  application:
+    name: cloud-order-server
+eureka:
+  instance:
+    prefer-ip-address: true
+    instance-id: order80
+  client:
+    service-url:
+      defaultZone: http://eureka7001.com:7001/eureka
+    #下面的两个设置可以删除，因为默认就是会注册到eureka以及从eureka上拉取服务
+#    register-with-eureka: true
+#    fetch-registry: true
+# 当需要在FeignClient注解里使用和hystrix相融合的属性时，需要在yml文件将feign的hystrix开启，否则设置的融合属性无效(非融合属性依然有效 )
+feign:
+  hystrix:
+    enabled: true
